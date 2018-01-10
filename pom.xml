@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bl.task</groupId>
+    <artifactId>email-task</artifactId>
+    <version>task-least</version>
+
+    <packaging>jar</packaging>
+
+    <properties>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <javax.servlet.jsp.version>2.2</javax.servlet.jsp.version>
+        <javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+        <spring.framework.version>4.3.12.RELEASE</spring.framework.version>
+        <spring.security.version>4.2.3.RELEASE</spring.security.version>
+        <log.log4j.version>2.4.1</log.log4j.version>
+        <commons.net.version>3.3</commons.net.version>
+        <commons.lang.version>3.4</commons.lang.version>
+        <mysql.connector.version>5.1.39</mysql.connector.version>
+        <c3p0.version>0.9.5.2</c3p0.version>
+        <com.lmax.version>3.3.2</com.lmax.version>
+        <mybatis.version>3.4.1</mybatis.version>
+        <mybatis.spring>1.3.0</mybatis.spring>
+        <mybatis.mapper>3.3.9</mybatis.mapper>
+    </properties>
+
+    <dependencies>
+        <!-- mybaties-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis.spring}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.23</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>${javax.servlet.jsp.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${javax.servlet.jstl.version}</version>
+        </dependency>
+
+        <!--spring -->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency><!-- spring-beans -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency><!-- spring-context -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log.log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log.log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log.log4j.version}</version>
+        </dependency>
+
+        <!-- log4j2 异步日志需要的jar -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${com.lmax.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>${commons.net.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
+        </dependency>
+        <!--email-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>4.2.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>email-task</finalName>
+        <plugins>
+            <!-- 统一源代码编译输出的JDK版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!--打包-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.bl.MainTest</mainClass>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.handlers</resource>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.schemas</resource>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/ssh?useSSL=true</jdbc.url>
+                <jdbc.user>root</jdbc.user>
+                <jdbc.password>123456</jdbc.password>
+                <jdbc.maxPoolSize>50</jdbc.maxPoolSize>
+                <jdbc.minPoolSize>1</jdbc.minPoolSize>
+                <jdbc.initialPoolSize>1</jdbc.initialPoolSize>
+                <jdbc.acquireIncrement>1</jdbc.acquireIncrement>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/ssh?useSSL=true</jdbc.url>
+                <jdbc.user>root</jdbc.user>
+                <jdbc.password>yanghongbo</jdbc.password>
+                <jdbc.maxPoolSize>50</jdbc.maxPoolSize>
+                <jdbc.minPoolSize>5</jdbc.minPoolSize>
+                <jdbc.initialPoolSize>5</jdbc.initialPoolSize>
+                <jdbc.acquireIncrement>1</jdbc.acquireIncrement>
+                <!-- redis 内存服务器 -->
+                <!--<cache.enable>1</cache.enable>-->
+                <!--<cache.redis.host>172.31.144.48:6379</cache.redis.host>-->
+                <!--<cache.redis.enableCluster>0</cache.redis.enableCluster>-->
+
+                <!--<QRCodePath>/opt/web/bitpoolex/u/qrcode</QRCodePath>-->
+                <!--<QRCodePtPath>/u/qrcode</QRCodePtPath>-->
+                <!--<AuthenPath>/opt/web/bitpoolex/u/authen</AuthenPath>-->
+                <!--<AuthenPtPath>/u/authen</AuthenPtPath>-->
+                <!--<ChatImgPath>/opt/web/bitpoolex/u/chat</ChatImgPath>-->
+                <!--<ChatImgPtPath>/u/chat</ChatImgPtPath>-->
+                <!--<ImagePath>/opt/web/bitpoolex/u/img</ImagePath>-->
+                <!--<ImagePtPath>/u/img</ImagePtPath>-->
+                <!--<img.host>http://www.bitpoolex.com</img.host>-->
+                <!--<front.webSocket.allowOrigins>*,</front.webSocket.allowOrigins>-->
+            </properties>
+        </profile>
+
+    </profiles>
+
+</project>
