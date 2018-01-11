@@ -34,10 +34,16 @@ public class EmailTaskDaoImpl implements EmailTaskDao {
         return emailTasks;
     }
 
+    @Override
+    public void updateEmailTaskStatus(Integer id) {
+        String sql = "update bl_email_task set status='1' where id=?";
+        jdbcTemplate.update(sql,new int[]{id});
+    }
+
     private BlEmailTask mapRow(Map<String, Object> map) {
         BlEmailTask emailTask = new BlEmailTask();
-        emailTask.setId(Misc.parseLong(map.get("id").toString()));
-        emailTask.setTouserid(Misc.parseLong(map.get("to_user_id").toString()));
+        emailTask.setId(Misc.parseInteger(map.get("id").toString()));
+        emailTask.setTouserid(Misc.parseInteger(map.get("to_user_id").toString()));
         emailTask.setMsg((String)map.get("msg"));
         emailTask.setEmail((String) map.get("email"));
         emailTask.setSendtime((Date) map.get("send_time"));

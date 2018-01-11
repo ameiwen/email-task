@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class BlEmailTask {
 
-    private Long id;
-    private Long userid;
-    private Long touserid;
+    private Integer id;
+    private Integer userid;
+    private Integer touserid;
     private String msg;
     private String email;
     private String status;
@@ -15,27 +15,27 @@ public class BlEmailTask {
     private String ip;
     private Date createtime;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(Long userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 
-    public Long getTouserid() {
+    public Integer getTouserid() {
         return touserid;
     }
 
-    public void setTouserid(Long touserid) {
+    public void setTouserid(Integer touserid) {
         this.touserid = touserid;
     }
 

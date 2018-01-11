@@ -41,12 +41,14 @@ public class EmailTaskServiceImpl implements EmailTaskService {
         List<BlEmailTask> emailTasks = emailTaskDao.selectEmailTaskList();
         if(emailTasks!=null && emailTasks.size()>0){
             for(BlEmailTask emailTask : emailTasks){
-                emailCinfig(emailTask);
+                if(emailCinfig(emailTask)){
+                    emailTaskDao.updateEmailTaskStatus(emailTask.getId());
+                }
             }
         }
     }
 
-    private void emailCinfig(BlEmailTask blEmailTask){
+    private boolean emailCinfig(BlEmailTask blEmailTask){
         Email email = new Email();
         //主题
         email.setSubject("哈喽");
@@ -59,7 +61,7 @@ public class EmailTaskServiceImpl implements EmailTaskService {
         String content = builder.toString();
         email.setContent(content);
         email.setToEmails(blEmailTask.getEmail());
-        sendEmail(email);
+        return sendEmail(email);
         //附件
 //        Map<String, String> attachments = new HashMap<String, String>();
 //        attachments.put("清单.xlsx",excelPath+"清单.xlsx");
@@ -70,7 +72,7 @@ public class EmailTaskServiceImpl implements EmailTaskService {
      * 发送邮件
      * @param email
      */
-    private void sendEmail(Email email) {
+    private boolean sendEmail(Email email) {
         // 建立邮件消息
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper messageHelper;
@@ -166,12 +168,16 @@ public class EmailTaskServiceImpl implements EmailTaskService {
             javaMailSender.send(message);
         }  catch (AddressException e) {
             logger.error( "收件人账户信息不正确!",e);
+            return false;
         } catch (MessagingException e) {
             logger.error("收件人账户异常!",e);
+            return false;
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
             logger.error("send error!",e);
+            return false;
+
         }
+        return true;
     }
 
 }

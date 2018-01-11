@@ -9,4 +9,6 @@ public interface EmailTaskDao {
 
     List<BlEmailTask> selectEmailTaskList();
 
+    void updateEmailTaskStatus(Integer id);
+
 }
