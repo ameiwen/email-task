@@ -43,7 +43,7 @@ public class EmailTaskDaoImpl implements EmailTaskDao {
     private BlEmailTask mapRow(Map<String, Object> map) {
         BlEmailTask emailTask = new BlEmailTask();
         emailTask.setId(Misc.parseInteger(map.get("id").toString()));
-        emailTask.setId(Misc.parseInteger(map.get("cid").toString()));
+        emailTask.setCid(Misc.parseInteger(map.get("cid").toString()));
         emailTask.setAuthor((String) map.get("author"));
         emailTask.setMsg((String)map.get("msg"));
         emailTask.setEmail((String) map.get("email"));
