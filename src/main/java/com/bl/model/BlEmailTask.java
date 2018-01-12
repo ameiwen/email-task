@@ -5,8 +5,8 @@ import java.util.Date;
 public class BlEmailTask {
 
     private Integer id;
-    private Integer userid;
-    private Integer touserid;
+    private Integer cid;//文章ID
+    private String author;
     private String msg;
     private String email;
     private String status;
@@ -23,20 +23,20 @@ public class BlEmailTask {
         this.id = id;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public Integer getCid() {
+        return cid;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setCid(Integer cid) {
+        this.cid = cid;
     }
 
-    public Integer getTouserid() {
-        return touserid;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setTouserid(Integer touserid) {
-        this.touserid = touserid;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getMsg() {

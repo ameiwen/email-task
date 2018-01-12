@@ -41,22 +41,23 @@ public class EmailTaskServiceImpl implements EmailTaskService {
         List<BlEmailTask> emailTasks = emailTaskDao.selectEmailTaskList();
         if(emailTasks!=null && emailTasks.size()>0){
             for(BlEmailTask emailTask : emailTasks){
-                if(emailCinfig(emailTask)){
+                if(emailConfig(emailTask)){
                     emailTaskDao.updateEmailTaskStatus(emailTask.getId());
                 }
             }
         }
     }
 
-    private boolean emailCinfig(BlEmailTask blEmailTask){
+    private boolean emailConfig(BlEmailTask blEmailTask){
         Email email = new Email();
         //主题
         email.setSubject("哈喽");
         StringBuilder builder = new StringBuilder();
-        builder.append("<html><body><p>你的评论有新回复了奥~~<p/>");
-        builder.append("<p>"+blEmailTask.getTouserid()+"回复了您:<p/>");
+        builder.append("<html><body>");
+        builder.append("<p>你的评论有新回复了奥~~<p/>");
+        builder.append("<p>"+blEmailTask.getAuthor()+"回复了您:<p/>");
         builder.append("<p>"+blEmailTask.getMsg()+"</P>");
-        builder.append("<p>查看详细信息<a href='https://www.baidu.com'>点击这里</a></p>");
+        builder.append("<p>查看详细信息,请<a href='http://120.79.30.96/article/"+blEmailTask.getCid()+"#comments'>点击这里</a></p>");
         builder.append("</body></html>");
         String content = builder.toString();
         email.setContent(content);

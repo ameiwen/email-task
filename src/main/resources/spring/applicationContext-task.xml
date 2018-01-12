@@ -11,7 +11,7 @@
     <task:annotation-driven/>
 
     <!-- 定时任务 -->
-    <bean id="chatTask" class="com.bl.task.EmailTask" />
+    <bean id="emailTask" class="com.bl.task.EmailTask" />
     <task:scheduled-tasks>
         <task:scheduled ref="emailTask" method="sendEmail" cron="0/20 * * * * ?"/>
     </task:scheduled-tasks>
