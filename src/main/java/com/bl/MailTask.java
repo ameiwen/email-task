@@ -1,6 +1,5 @@
 package com.bl;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MailTask {
 
